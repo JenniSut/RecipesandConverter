@@ -20,7 +20,8 @@ export default function Recipes() {
     };
 
     return (
-        <View>
+        <View style={styles.container}>
+            <View>
                 <TextInput 
                 style={{fontSize: 20, width: 200, borderColor: 'gray', borderWidth: 1}}
                 placeholder='Ingredient'
@@ -28,7 +29,7 @@ export default function Recipes() {
                 onChangeText= {keyword => setKeyword(keyword)}
                 />
                 <Button title='Find' onPress={getRecipes}/>
-            
+            </View>
             <FlatList
             style={{marginLeft : '5%'}}
             keyExtractor={(item, idMeal) => idMeal.toString()}
@@ -44,3 +45,15 @@ export default function Recipes() {
         </View>
     )
 };
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    item: {
+        flexDirection: 'row'
+    },
+});
