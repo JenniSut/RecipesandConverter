@@ -6,7 +6,7 @@ import { Picker } from '@react-native-picker/picker';
 export default function Converter({ navigation }) {
 
     const [currencies, setCurrencies] = useState([]);
-    const [input, setInput] = useState(0);
+    const [input, setInput] = useState('');
     const [outcome, setOutcome] = useState(0);
     const [selectedCurrency, setSelectedCurrency] = useState();
     
@@ -36,13 +36,15 @@ export default function Converter({ navigation }) {
     return (
         
         <View style={styles.container}>
-            <Text>{outcome.toFixed(2)} €</Text>
+            <Text style={{ fontSize: 20}}>{outcome.toFixed(2)} €</Text>
             <View style={styles.item}>
-                <TextInput style={{ fontSize: 20, width: 50, borderColor: 'gray', borderWidth: 1 }}
+                <TextInput style={{ fontSize: 20, width: 50, borderColor: 'gray', borderWidth: 1, height: 40 }}
                 value={input}
                 onChangeText={input => setInput(input)}/>
-                <Picker
-                selectedValue={selectedCurrency}
+                
+                <Picker 
+                    style={{ fontSize: 20, width: 100, borderColor: 'gray', borderWidth: 1, color: 'black' }}
+                    selectedValue={selectedCurrency}
                     onValueChange={(itemValue) =>
                         setSelectedCurrency(itemValue)
                     } >
@@ -50,7 +52,8 @@ export default function Converter({ navigation }) {
                         return (<Picker.Item label={item} value={item} key={index} />)
                     })}
                 </Picker>
-            </View>
+                </View>
+            
             <Button title='Convert' onPress={convert}/>
             
         </View>
