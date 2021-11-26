@@ -11,7 +11,7 @@ export default function Converter({ navigation }) {
     const [selectedCurrency, setSelectedCurrency] = useState();
     
     const getCurrencies = () => {
-        fetch(`http://api.exchangeratesapi.io/latest?access_key=f68c5b02544c8e18affad803ae6fe81a`)
+        fetch(`http://api.exchangeratesapi.io/latest?access_key=YOURKEY`)
             .then(response => response.json())
             .then(responseJson => setCurrencies(responseJson.rates))
             .catch(error => {
